@@ -22,11 +22,14 @@ class Parser
   private
 
   def atom(token)
+    # ダブルクォートで囲われていれば文字列
     if token[0] == "\""
       raise SyntaxError, 'unexpected "' if token[-1] != "\""
       token.gsub("\"", "")
+    # 0でないのにto_iが0であればシンボル
     elsif token != '0' && token.to_i == 0
       token.to_sym
+    # 数値
     else
       token.to_i
     end
