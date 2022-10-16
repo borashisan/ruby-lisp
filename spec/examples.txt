@@ -1,0 +1,4 @@
+example_id                   | status | run_time        |
+---------------------------- | ------ | --------------- |
+./spec/lexer_spec.rb[1:1:1]  | passed | 0.00023 seconds |
+./spec/parser_spec.rb[1:1:1] | passed | 0.00008 seconds |
