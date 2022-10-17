@@ -22,5 +22,34 @@ RSpec.describe Evaluator do
         end
       end
     end
+    context '-' do
+      context '-' do
+        context '引数が2つ' do
+          context '結果が正の数' do
+            let(:program) { '(- 10 1)' }
+
+            it '評価できること' do
+              expect(Evaluator.new.eval(parsed_tokens)).to eq 9
+            end
+          end
+
+          context '結果が負の数' do
+            let(:program) { '(- 1 10)' }
+
+            it '評価できること' do
+              expect(Evaluator.new.eval(parsed_tokens)).to eq -9
+            end
+          end
+        end
+
+        context '引数が2つ以上' do
+          let(:program) { '(- 10 1 2)' }
+
+          it '評価できること' do
+            expect(Evaluator.new.eval(parsed_tokens)).to eq 7
+          end
+        end
+      end
+    end
   end
 end
